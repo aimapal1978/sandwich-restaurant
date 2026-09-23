@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>супер шаурма | Світ Сендвич & Гриль</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* تنسيقات إضافية خاصة بصفحة تفاصيل الوجبة */
+        .meal-detail-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+        }
+        @media (max-width: 768px) {
+            .meal-detail-card {
+                grid-template-columns: 1fr;
+            }
+        }
+        .meal-detail-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .category-tag {
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        .meal-detail-info h2 {
+            margin: 1rem 0 0.5rem 0;
+            color: var(--secondary-color);
+            font-size: 2rem;
+        }
+        .detail-price {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+        .ingredients-list {
+            list-style: none;
+            margin: 1rem 0 2rem 0;
+            padding: 0;
+        }
+        .ingredients-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f1f1f1;
+            font-size: 1rem;
+            color: #555;
+        }
+        .back-btn {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-btn:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Світ Сендвич & Гриль</h1>
+    </header>
+
+    <main class="main-container">
+        <!-- سيتم حقن تفاصيل الوجبة هنا تلقائياً -->
+        <div id="meal-details-container"></div>
+    </main>
+
+    <!-- نافذة منبثقة للدفع (نفس تصميم النافذة السابقة) -->
+<div id="checkout-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="close-modal">&times;</span>
+        <h3>الدفع السريع والآمن ⚡</h3>
+        <p id="modal-item-title" style="margin: 10px 0; font-weight: bold; color: var(--secondary-color);"></p>
+        
+        <!-- أزرار المحافظ الرقمية السريعة -->
+        <div class="digital-wallets-container" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px;">
+            <!-- زر Apple Pay (يظهر حصراً في أجهزة آبل) -->
+            <button id="apple-pay-btn" class="wallet-btn apple-btn" style="display: none;" onclick="handleApplePay()">
+                 Pay الدفع السريع
+            </button>
+            
+            <!-- زر Google Pay (يظهر في متصفح كروم والأجهزة المدعومة) -->
+            <button id="google-pay-btn" class="wallet-btn google-btn" style="display: none;" onclick="handleGooglePay()">
+                G Pay الدفع السريع
+            </button>
+        </div>
+
+        <div class="divider" style="text-align: center; margin: 15px 0; color: #888; font-size: 0.85rem;">أو اطلب بالدفع التقليدي عند الاستلام</div>
+
+        <form id="payment-form">
+            <div class="form-group">
+                <label>الاسم الكريم</label>
+                <input type="text" id="customer-name" placeholder="محمد أحمد" required>
+            </div>
+            <div class="form-group">
+                <label>رقم الهاتف</label>
+                <input type="tel" id="customer-phone" placeholder="01012345678" required>
+            </div>
+            <div class="form-group">
+                <label>عنوان التوصيل</label>
+                <input type="text" id="delivery-address" placeholder="الشارع، رقم العمارة" required>
+            </div>
+            <button type="submit" class="pay-now-btn">تأكيد الطلب والدفع عند الاستلام 🛵</button>
+        </form>
+    </div>
+</div>
+    <!-- ربط نفس ملف الجافا سكريبت المشترك -->
+    <script src="app.js"></script>
+</body>
+</html>

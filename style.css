@@ -1,0 +1,384 @@
+:root {
+    --primary-color: #ff5722;
+    --secondary-color: #2c3e50;
+    --accent-color: #f39c12;
+    --bg-color: #ead8c4;
+    --text-color: #333;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, var(--secondary-color), #1a252f);
+    color: var(--white);
+    padding: 2.5rem 1rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.banner-contact-info {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.95rem;
+    color: var(--accent-color);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+@media (min-width: 768px) {
+    .banner-contact-info {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+.hero-banner {
+    position: relative;
+    width: 100%;
+    line-height: 0;
+    margin-bottom: 1.5rem;
+}
+
+.hero-banner > img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.restaurant-intro {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    text-align: center;
+    color: var(--white);
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    line-height: 1.4;
+}
+
+.restaurant-intro h1 {
+    margin-bottom: 0.5rem;
+    color: var(--white);
+    font-size: 2rem;
+}
+
+.restaurant-intro p {
+    font-size: 1.05rem;
+}
+
+
+.hero-content h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.categories-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 1.5rem 1rem;
+    background: var(--white);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    padding: 0.5rem 1.2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--secondary-color);
+    color: var(--white);
+}
+
+/* تخطيط الصفحة بعرض كامل */
+.main-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.meal-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.meal-card:hover {
+    transform: translateY(-5px);
+}
+
+.meal-image-container {
+    position: relative;
+    height: 180px;
+    background: #e0e0e0;
+    overflow: hidden;
+}
+
+.meal-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.meal-price {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.meal-info {
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.meal-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-color);
+}
+
+.meal-ingredients {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.buy-btn {
+    background: #27ae60;
+    color: var(--white);
+    border: none;
+    padding: 0.7rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+    text-align: center;
+}
+
+.buy-btn:hover {
+    background: #219653;
+}
+
+/* تنسيق النافذة المنبثقة (Modal) للدفع */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 0.95rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+}
+
+.pay-now-btn {
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.3s;
+}
+
+.pay-now-btn:hover {
+    background: #e64a19;
+}
+.banner-contact-info {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 0.95rem;
+    color: var(--accent-color);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+@media (min-width: 768px) {
+    .banner-contact-info {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+/* تنسيق أسفل الصفحة (Footer) */
+.site-footer {
+    background: var(--secondary-color);
+    color: var(--white);
+    padding: 3rem 1rem 1rem 1rem;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 2rem;
+}
+
+.footer-section h3 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.footer-section p {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+/* تنسيق أزرار المحافظ الرقمية */
+.wallet-btn {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: opacity 0.3s;
+}
+
+.wallet-btn:hover {
+    opacity: 0.9;
+}
+
+/* زر Apple Pay (أسود كلاسيكي) */
+.apple-btn {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* زر Google Pay (أبيض بإطار أو رمادي داكن عصري) */
+.google-btn {
+    background-color: #f8f9fa;
+    color: #3c4043;
+    border: 1px solid #dadce0;
+}

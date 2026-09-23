@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Світ Сендвич & Гриль | Свіжа шаурма</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="hero-banner">
+        <img src="restaraunt.jpg" alt="Світ Сендвич & Гриль">
+        <section class="restaurant-intro">
+            <h1>Світ Сендвич & Гриль</h1>
+            <p>📍 Адреса: Вінниця, вул. Келецька, 1, біля Уражая</p>
+                    <p>Автентичний смак... Свіжа шаурма, що готується щодня з преміальних інгредієнтів</p>
+        <p>📞 Для замовлень: 0737979799 - 000000000</p>
+
+        </section>
+    </div>
+
+    
+
+
+        <nav class="categories-nav">
+            <button class="filter-btn active" data-category="all">Все</button>
+            <button class="filter-btn" data-category="Шаурма">Шаурма</button>
+            <button class="filter-btn" data-category="Хот Дог">Хот Дог</button>
+            <button class="filter-btn" data-category="Бургер">Бургері</button>
+            <button class="filter-btn" data-category="Напо">Напої</button>
+            <button class="filter-btn" data-category="добавки">добавки</button>
+
+        </nav>
+        <main class="main-container">
+            <div id="menu-container" class="menu-grid">
+            </div>
+        </main>
+
+        <div id="checkout-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" id="close-modal">&times;</span>
+                <h3>الدفع السريع والآمن ⚡</h3>
+                <p id="modal-item-title" style="margin: 10px 0; font-weight: bold; color: var(--secondary-color);"></p>
+
+                <div class="digital-wallets-container" style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 15px;">
+                    <button id="apple-pay-btn" class="wallet-btn apple-btn" style="display: none;" onclick="handleApplePay()">
+            </button>
+
+                    <button id="google-pay-btn" class="wallet-btn google-btn" style="display: none;" onclick="handleGooglePay()">
+            </button>
+                </div>
+                <div class="form-group">
+                    <label>delivry address</label>
+                    <input type="text" id="delivery-address" placeholder="المدينة، الشارع، رقم العمارة" required>
+                </div>
+                <button type="submit" class="pay-now-btn">تأكيد ودفع المبلغ</button>
+                </form>
+            </div>
+        </div>
+
+        <script src="app.js"></script>
+</body>
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Світ Сендвич & Гриль
+            </h3>
+            <p>Автентичний смак... Свіжа шаурма, що готується щодня з найкращих оригінальних інгредієнтів.</p>
+        </div>
+        <div class="footer-section">
+            <h3>Зв'яжіться з нами</h3>
+            <p>📍 Адреса: Вінниця, вул. Келеьцка, 1, біля Уражая</p>
+            <p>📞 Тел 1: 0737979799</p>
+            <p>📞 Тел 2: 0000000000</p>
+        </div>
+        <div class="footer-section">
+            <h3>робочі години</h3>
+            <p>Щоденно з 9:00 до 22:00 </p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>Всі права захищені © 2026 Світ Сендвич & Гриль
+        </p>
+    </div>
+</footer>
+
+</html>
